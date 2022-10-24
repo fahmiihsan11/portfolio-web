@@ -1,12 +1,56 @@
-import React from "react";
-import { Box, Text, Center, Image, Button, Link, Heading, SimpleGrid, VStack} from "@chakra-ui/react" ;
+import React, { useState } from "react";
+import { 
+    Box, 
+    Text, 
+    Center, 
+    Image, 
+    Button, 
+    Link, 
+    Heading, 
+    SimpleGrid, 
+    VStack, 
+    Modal, 
+    ModalOverlay, 
+    ModalContent, 
+    ModalHeader, 
+    ModalBody, 
+    ModalFooter,
+    ModalCloseButton,
+    useDisclosure 
+} from "@chakra-ui/react" ;
 import Navbar from "../components/Navbar";
 import Avatar from "../assets/images/avatar.jpg"
+import Covid19 from "../assets/images/covid19.png"
+import KdramaList from "../assets/images/kdramalist.png"
+import Waddup from "../assets/images/waddup.png"
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { SiLinkedin, SiGithub } from 'react-icons/si'
 import { FaFacebook, FaSkype } from 'react-icons/fa';
 
 export default function Main(){
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [modalImage, setModalImage] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
+    const [linkModal, setLinkModal] = useState('');
+
+    const handleModalOpen = (text) =>{
+        if(text === "Covid-19"){
+            setModalImage(Covid19)
+            setModalTitle(text)
+            setLinkModal('https://covid19-fahmiihsan11.vercel.app/')
+        }
+        if(text === "Kdrama List"){
+            setModalImage(KdramaList)
+            setModalTitle(text)
+        }
+        if(text === "Waddup"){
+            setModalImage(Waddup)
+            setModalTitle(text)
+        }
+        onOpen();
+    }
+
     return(
         <Box width={"100%"} height={"100vh"} >
             <Navbar/>
@@ -87,27 +131,28 @@ export default function Main(){
                 <Center>
                 <Box align="center" width={"100%"} margin={3}>
                     <VStack spacing={6} align='stretch'>
-                        <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://covid19-fahmiihsan11.vercel.app/" isExternal>
-                            <Box h='90px' pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px"}} >
+                        {/* <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://covid19-fahmiihsan11.vercel.app/" isExternal> */}
+                            <Box id="covid19" h='90px' pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Covid-19")} >
                                 <Center verticalAlign={"center"}>
                                     <Text> Covid-19 Statistic</Text>
                                 </Center>
                             </Box>
-                        </Link>
-                        <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://fahmiihsan11-kdramalist.vercel.app/#/" isExternal>
-                            <Box h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px"}}>
+                        {/* </Link> */}
+                        {/* <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://fahmiihsan11-kdramalist.vercel.app/#/" isExternal> */}
+                            <Box id="kdramalist" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Kdrama List")}>
                             <Center verticalAlign={"center"}>
                                 <Text> KDrama List</Text>
                                 </Center>
                             </Box>
-                        </Link>
-                        <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://waddup-eta.vercel.app/login" isExternal>
-                            <Box h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px"}} >
+                        {/* </Link> */}
+                        {/* <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://waddup-eta.vercel.app/login" isExternal> */}
+                            
+                            <Box id="waddup" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Waddup")}>
                             <Center verticalAlign={"center"}>
                                 <Text>Waddup</Text>
                             </Center>
                             </Box>
-                        </Link>
+                        {/* </Link> */}
                         </VStack>
                     </Box>
                 </Center>
@@ -122,6 +167,23 @@ export default function Main(){
                 </Box>    
             </Center>
             </Box>
+
+            <Modal isOpen={isOpen} onClose={onClose} size="2xl">
+                <ModalOverlay />
+                <ModalContent>
+                <ModalHeader>{modalTitle}</ModalHeader>
+                <Image src={modalImage} padding={5}/>
+                <ModalCloseButton />
+                <ModalBody>
+                </ModalBody>
+                <ModalFooter>
+                    <Button onClick={onClose} mr={3}>Close</Button>
+                    <Link href={linkModal}  textDecoration={"none"} _hover={{textDecoration: "none"}} isExternal>
+                        <Button colorScheme='blue' >View</Button>
+                    </Link>
+                </ModalFooter>
+                </ModalContent>
+            </Modal>
         </Box>
     )
 }
