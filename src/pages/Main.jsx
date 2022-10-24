@@ -131,28 +131,21 @@ export default function Main(){
                 <Center>
                 <Box align="center" width={"100%"} margin={3}>
                     <VStack spacing={6} align='stretch'>
-                        {/* <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://covid19-fahmiihsan11.vercel.app/" isExternal> */}
                             <Box id="covid19" h='90px' pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Covid-19")} >
                                 <Center verticalAlign={"center"}>
                                     <Text> Covid-19 Statistic</Text>
                                 </Center>
                             </Box>
-                        {/* </Link> */}
-                        {/* <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://fahmiihsan11-kdramalist.vercel.app/#/" isExternal> */}
                             <Box id="kdramalist" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Kdrama List")}>
                             <Center verticalAlign={"center"}>
                                 <Text> KDrama List</Text>
                                 </Center>
                             </Box>
-                        {/* </Link> */}
-                        {/* <Link textDecoration={"none"} _hover={{textDecoration: "none"}} href="https://waddup-eta.vercel.app/login" isExternal> */}
-                            
                             <Box id="waddup" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Waddup")}>
                             <Center verticalAlign={"center"}>
                                 <Text>Waddup</Text>
                             </Center>
                             </Box>
-                        {/* </Link> */}
                         </VStack>
                     </Box>
                 </Center>
@@ -179,7 +172,7 @@ export default function Main(){
                 <ModalFooter>
                     <Button onClick={onClose} mr={3}>Close</Button>
                     <Link href={linkModal}  textDecoration={"none"} _hover={{textDecoration: "none"}} isExternal>
-                        <Button colorScheme='blue' >View</Button>
+                        <Button colorScheme='teal' >View</Button>
                     </Link>
                 </ModalFooter>
                 </ModalContent>
