@@ -37,16 +37,18 @@ export default function Main(){
     const handleModalOpen = (text) =>{
         if(text === "Covid-19"){
             setModalImage(Covid19)
-            setModalTitle(text)
+            setModalTitle(`React - ${text}`)
             setLinkModal('https://covid19-fahmiihsan11.vercel.app/')
         }
         if(text === "Kdrama List"){
             setModalImage(KdramaList)
-            setModalTitle(text)
+            setModalTitle(`Flutter - ${text}`)
+            setLinkModal('https://fahmiihsan11-kdramalist.vercel.app/#/')
         }
         if(text === "Waddup"){
             setModalImage(Waddup)
-            setModalTitle(text)
+            setModalTitle(`Ionic - ${text}`)
+            setLinkModal('https://waddup-eta.vercel.app/login')
         }
         onOpen();
     }
@@ -170,13 +172,13 @@ export default function Main(){
                 <ModalBody>
                 </ModalBody>
                 <ModalFooter>
-                    <Button onClick={onClose} mr={3}>Close</Button>
                     <Link href={linkModal}  textDecoration={"none"} _hover={{textDecoration: "none"}} isExternal>
                         <Button colorScheme='teal' >View</Button>
                     </Link>
                 </ModalFooter>
                 </ModalContent>
             </Modal>
+
         </Box>
     )
 }

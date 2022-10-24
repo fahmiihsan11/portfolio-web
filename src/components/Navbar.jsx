@@ -18,7 +18,7 @@ return(
     <header >
      <Flex align-items="center" justifyContent="space-between"  bg="#dfdfdf" pos="fixed" w="100%" zIndex={2}>
         <Box pl={5} pt={3} pb={0} >
-          <Text fontWeight={"bold"} color="blackAlpha.700" size='sm'>Portfolio</Text>
+          <Text fontWeight={"bold"} color="blackAlpha.700" size='sm'>PORTFOLIO</Text>
         </Box>
         <Spacer />
         <Box pt={2} pb={2} pr={5} >
