@@ -173,7 +173,7 @@ export default function Main(){
                 </ModalBody>
                 <ModalFooter>
                     <Link href={linkModal}  textDecoration={"none"} _hover={{textDecoration: "none"}} isExternal>
-                        <Button colorScheme='teal' >View</Button>
+                        <Button colorScheme='gray' variant='outline' >View</Button>
                     </Link>
                 </ModalFooter>
                 </ModalContent>
