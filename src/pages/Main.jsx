@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
     Box, 
     Text, 
@@ -19,36 +19,36 @@ import {
     useDisclosure 
 } from "@chakra-ui/react" ;
 import Navbar from "../components/Navbar";
-import Avatar from "../assets/images/avatar.jpg"
-import Covid19 from "../assets/images/covid19.png"
-import KdramaList from "../assets/images/kdramalist.png"
-import Waddup from "../assets/images/waddup.png"
-import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { SiLinkedin, SiGithub } from 'react-icons/si'
+import Avatar from "../assets/images/avatar.jpg";
+import Covid19 from "../assets/images/covid19.png";
+import KdramaList from "../assets/images/kdramalist.png";
+import NMoviez from "../assets/images/n-moviez.png";
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { SiLinkedin, SiGithub } from 'react-icons/si';
 import { FaFacebook, FaSkype } from 'react-icons/fa';
 
 export default function Main(){
 
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [modalImage, setModalImage] = useState('');
-    const [modalTitle, setModalTitle] = useState('');
-    const [linkModal, setLinkModal] = useState('');
+    const [modalImage, setModalImage] = React.useState('');
+    const [modalTitle, setModalTitle] = React.useState('');
+    const [linkModal, setLinkModal] = React.useState('');
 
     const handleModalOpen = (text) =>{
         if(text === "Covid-19"){
             setModalImage(Covid19)
-            setModalTitle(`React - ${text}`)
+            setModalTitle(text)
             setLinkModal('https://covid19-fahmiihsan11.vercel.app/')
         }
         if(text === "Kdrama List"){
             setModalImage(KdramaList)
-            setModalTitle(`Flutter - ${text}`)
+            setModalTitle(text)
             setLinkModal('https://fahmiihsan11-kdramalist.vercel.app/#/')
         }
-        if(text === "Waddup"){
-            setModalImage(Waddup)
-            setModalTitle(`Ionic - ${text}`)
-            setLinkModal('https://waddup-eta.vercel.app/login')
+        if(text === "N-Moviez"){
+            setModalImage(NMoviez)
+            setModalTitle(text)
+            setLinkModal('https://n-moviez.vercel.app')
         }
         onOpen();
     }
@@ -135,7 +135,7 @@ export default function Main(){
                     <VStack spacing={6} align='stretch'>
                             <Box id="covid19" h='90px' pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Covid-19")} >
                                 <Center verticalAlign={"center"}>
-                                    <Text> Covid-19 Statistic</Text>
+                                    <Text> Covid-19 </Text>
                                 </Center>
                             </Box>
                             <Box id="kdramalist" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Kdrama List")}>
@@ -143,9 +143,9 @@ export default function Main(){
                                 <Text> KDrama List</Text>
                                 </Center>
                             </Box>
-                            <Box id="waddup" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("Waddup")}>
+                            <Box id="waddup" h='90px'  pt={8} border={" 1px solid"} borderRadius={"10px"} _hover={{ fontWeight: "bold", fontSize: "20px", cursor:"pointer"}} onClick={() => handleModalOpen("N-Moviez")}>
                             <Center verticalAlign={"center"}>
-                                <Text>Waddup</Text>
+                                <Text> N-Moviez </Text>
                             </Center>
                             </Box>
                         </VStack>
